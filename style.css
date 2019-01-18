@@ -46,7 +46,7 @@ CONTAINER
 APP
 ================== */
 .nav {
-  flex: 0 0 30%;
+  flex: 0 0 300px;
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--grey-lighter);
@@ -137,14 +137,23 @@ MAIN
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1000px;
 }
 
+.copy-button {
+  display: flex;
+  align-items: center;
+}
+.copy-button small {
+  margin-right: 10px;
+}
 /*
 === MAIN ARTICLE ===
 */
 .main-article {
   flex-grow: 1;
   margin-top: -10px;
+  max-width: 1000px;
 }
 
 .editor-title {
@@ -183,7 +192,7 @@ MAIN
   margin-bottom: 15px !important;
 }
 
-.duplicates .tag.is-delete {
+.duplicates .tag.is-link {
   background: hsl(14,  100%, 93%);
   color:  hsl(14,  100%, 23%);
 }
@@ -196,15 +205,23 @@ MAIN
 }
 
 .remove-all-duplicates {
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin-top: 10px;
+}
+
+/*
+=== General: remove link ===
+*/
+
+.remove-link {
   font-size: 0.8rem;
 }
 
-.remove-all-duplicates a {
+.remove-link a {
   color:  hsl(14,  100%, 23%);
 }
 
-.remove-all-duplicates a:hover {
+.remove-link a:hover {
   text-decoration: underline;
   color:  hsl(14,  100%, 23%);
 }
@@ -213,6 +230,6 @@ MAIN
 === MAIN FOOTER ===
 */
 .main-footer {
-
+  display: flex;
 }
 

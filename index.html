@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="add-note">
-            <a href="">
+            <a>
               <span class="icon has-text-grey-lighter">
                 <i class="fas fa-edit fa-lg"></i>
               </span>
@@ -40,27 +40,38 @@
         <article class="nav-article">
           <ul class="note-list">
             <li v-for="(note, index) in notes">
-              <a href="" :class="[{'active': index === 1}]">
+              <a>
                 {{ note.title }}
+              </a>
+            </li>
+            <li>
+              <a class="active">
+                {{ hashTitle }}
               </a>
             </li>
           </ul>
         </article>
         <footer class="nav-footer">
-          <a href="">Hash Tag Manager</a>
+          <a>Hash Tag Manager</a>
         </footer>
       </nav>
       <main class="main">
         <header class="main-header">
           <div class="menu-button">
-            <a v-on:click="toggleNav">
+            <!-- <a v-on:click="toggleNav">
               <span class="icon is-small is-left">
                 <i class="fas fa-bars"></i>
               </span>
-            </a>
+            </a> -->
           </div>
           <div class="copy-button">
-            <a class="button is-warning">Copy Hashtag</a>
+            <small>{{ copiedMessage }}</small>
+            <a
+              :disabled="!hashText"
+              class="button is-warning"
+              v-on:click="copyHash">
+              Copy Hashtag
+            </a>
           </div>
         </header>
         <article class="main-article">
@@ -69,43 +80,49 @@
               <input type="text" class="input" v-model="hashTitle">
             </div>
             <div class="editor-text">
-              <textarea class="textarea" v-model="hashText"></textarea>
+              <textarea
+                ref="text"
+                class="textarea"
+                v-on:keyup="submit"
+                v-model="hashText"></textarea>
             </div>
           </section>
           <section class="description">
             <ul class="state-list has-text-grey">
               <li>
-                <span class="state-label state-label-count">20</span>
+                <span class="state-label state-label-count">{{ count }}</span>
                 Count
               </li>
               <li>
-                <span class="state-label state-label-duplicate">2</span>
+                <span class="state-label state-label-duplicate">{{ duplicatesCount }}</span>
                 Duplicate
               </li>
             </ul>
           </section>
 
-
-          <section class="duplicates">
+          <section class="duplicates" v-show="duplicatesCount">
             <h2 class="title">Duplicates</h2>
 
             <div class="field is-grouped is-grouped-multiline">
-              <div class="control" v-for="(duplicate, index) in duplicates" :key="index">
+              <div class="control" v-for="(duplicate, index) in hashDuplicates" :key="index">
                 <div class="tags has-addons">
-                  <a class="tag is-link has-background-white has-text-black">{{ duplicate }}</a>
-                  <a class="tag is-delete"></a>
+                  <!-- has-background-white has-text-black -->
+                  <span class="tag is-link">{{ duplicate }}</span>
+                  <!-- <a class="tag is-delete"></a> -->
                 </div>
               </div>
             </div>
 
-            <div class="remove-all-duplicates">
-              <a href="">Remove All Duplicates</a>
+            <div class="remove-all-duplicates remove-link">
+              <a v-on:click="removeDuplicates">Remove All Duplicates</a>
             </div>
-
           </section>
         </article>
+
         <footer class="main-footer">
-          <!-- main footer -->
+          <div class="remove-link">
+            <a v-on:click="clearHash">Clear Hashtag</a>
+          </div>
         </footer>
       </main>
     </div>
