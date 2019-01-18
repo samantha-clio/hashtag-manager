@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Boogaloo" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.1/bulma-divider/dist/css/bulma-divider.min.css"> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script> -->
+  <script src="vue.js"></script>
+  <title>Hashtag Manager</title>
+</head>
+<body>
+  <!-- app -->
+  <div id="app">
+    <div class="wrap">
+      <nav class="nav" v-if="isClosed">
+        <header class="nav-header">
+          <div class="search">
+            <div class="field">
+              <p class="control has-icons-left has-icons-right">
+                <input class="input" type="email" placeholder="Search">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-search"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="add-note">
+            <a href="">
+              <span class="icon has-text-grey-lighter">
+                <i class="fas fa-edit fa-lg"></i>
+              </span>
+            </a>
+          </div>
+        </header>
+        <article class="nav-article">
+          <ul class="note-list">
+            <li v-for="(note, index) in notes">
+              <a href="" :class="[{'active': index === 1}]">
+                {{ note.title }}
+              </a>
+            </li>
+          </ul>
+        </article>
+        <footer class="nav-footer">
+          <a href="">Hash Tag Manager</a>
+        </footer>
+      </nav>
+      <main class="main">
+        <header class="main-header">
+          <div class="menu-button">
+            <a v-on:click="toggleNav">
+              <span class="icon is-small is-left">
+                <i class="fas fa-bars"></i>
+              </span>
+            </a>
+          </div>
+          <div class="copy-button">
+            <a class="button is-warning">Copy Hashtag</a>
+          </div>
+        </header>
+        <article class="main-article">
+          <section class="editor">
+            <div class="editor-title">
+              <input type="text" class="input" v-model="hashTitle">
+            </div>
+            <div class="editor-text">
+              <textarea class="textarea" v-model="hashText"></textarea>
+            </div>
+          </section>
+          <section class="description">
+            <ul class="state-list has-text-grey">
+              <li>
+                <span class="state-label state-label-count">20</span>
+                Count
+              </li>
+              <li>
+                <span class="state-label state-label-duplicate">2</span>
+                Duplicate
+              </li>
+            </ul>
+          </section>
+
+
+          <section class="duplicates">
+            <h2 class="title">Duplicates</h2>
+
+            <div class="field is-grouped is-grouped-multiline">
+              <div class="control" v-for="(duplicate, index) in duplicates" :key="index">
+                <div class="tags has-addons">
+                  <a class="tag is-link has-background-white has-text-black">{{ duplicate }}</a>
+                  <a class="tag is-delete"></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="remove-all-duplicates">
+              <a href="">Remove All Duplicates</a>
+            </div>
+
+          </section>
+        </article>
+        <footer class="main-footer">
+          <!-- main footer -->
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="index.js"></script>
+</body>
+</html>

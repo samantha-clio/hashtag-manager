@@ -1,0 +1,218 @@
+/* ==================
+CONTAINER
+================== */
+:root {
+  --black:        hsl(0, 0%, 4%);
+  --black-bis:    hsl(0, 0%, 7%);
+  --black-ter:    hsl(0, 0%, 14%);
+  --grey-darker:  hsl(0, 0%, 21%);
+  --grey-dark:    hsl(0, 0%, 29%);
+  --grey:         hsl(0, 0%, 48%);
+  --grey-light:   hsl(0, 0%, 71%);
+  --grey-lighter: hsl(0, 0%, 86%);
+  --white-ter:    hsl(0, 0%, 96%);
+  --white-bis:    hsl(0, 0%, 98%);
+  --white:        hsl(0, 0%, 100%);
+  --orange:       hsl(14,  100%, 53%);
+  --yellow:       hsl(48,  100%, 67%);
+  --green:        hsl(141, 71%,  48%);
+  --turquoise:    hsl(171, 100%, 41%);
+  --cyan:         hsl(204, 86%,  53%);
+  --blue:         hsl(217, 71%,  53%);
+  --purple:       hsl(271, 100%, 71%);
+  --red:          hsl(348, 100%, 61%);
+
+
+  --main-background: #F4F6F8;
+
+  --nav-background: #357997;
+  --nav-color: #C5D6DF;
+  --nav-background-darker: hsl(198, 53%, 35%);
+  --nav-background-lighter: hsl(198, 33%, 55%);
+  --nav-blue: #82C7ED;
+
+  /* --nav-background: #00848e;
+  --nav-color: #f9fafb;
+  --nav-background-darker: #006d74;
+  --nav-background-lighter: #1d9ba4; */
+}
+
+.wrap {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ==================
+APP
+================== */
+.nav {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--grey-lighter);
+  background: var(--nav-background);
+}
+
+/*
+=== NAV HEADER ===
+*/
+.nav-header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--nav-background-lighter);
+}
+
+.add-note {
+  display: flex;
+  align-content: center;
+  margin-left: 20px;
+}
+.add-note .icon {
+  height: 100%;
+}
+
+/*
+=== NAV ARTICLE ===
+*/
+.nav-article {
+  flex-grow: 1;
+}
+
+.note-list a.active {
+  background-color: var(--nav-blue);
+  color: var(--black-bis);
+}
+
+.note-list a {
+  display: block;
+  padding: 15px 10px;
+  color: var(--nav-color);
+}
+
+.note-list a:hover:not(.active) {
+  color: white;
+}
+
+/*
+=== NAV FOOTER ===
+*/
+
+.nav-footer {
+  display: flex;
+}
+
+.nav-footer a {
+  color: #F08C89;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Boogaloo', cursive;
+}
+
+/* ==================
+MAIN
+================== */
+
+.main {
+  flex: 2 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-background);
+}
+
+.main > * {
+  padding: 20px;
+}
+
+/*
+=== MAIN HEADER ===
+*/
+
+.main-header {
+  /* height: 56px; */
+  /* border-bottom: 1px solid var(--grey-lighter); */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*
+=== MAIN ARTICLE ===
+*/
+.main-article {
+  flex-grow: 1;
+  margin-top: -10px;
+}
+
+.editor-title {
+  margin-bottom: 20px;
+}
+
+.state-list {
+  display: flex;
+  margin-top: 10px;
+}
+.state-list li:not(:last-child) {
+  margin-right: 15px;
+}
+
+.state-label {
+  background: var(--white);
+  padding: 0px 5px;
+  border-radius: 5px;
+}
+
+.state-label-count {
+  color: var(--cyan);
+}
+
+.state-label-duplicate {
+  color: var(--orange);
+}
+
+.duplicates {
+  margin-top: 50px;
+}
+
+.duplicates .title {
+  font-size: 1.1rem;
+  /* color: var(--orange); */
+  margin-bottom: 15px !important;
+}
+
+.duplicates .tag.is-delete {
+  background: hsl(14,  100%, 93%);
+  color:  hsl(14,  100%, 23%);
+}
+
+.duplicates .is-divider {
+  border-top-color: var(--orange);
+}
+.duplicates .is-divider-vertical[data-content]::after, .is-divider[data-content]::after {
+  color: var(--orange) !important;
+}
+
+.remove-all-duplicates {
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.remove-all-duplicates a {
+  color:  hsl(14,  100%, 23%);
+}
+
+.remove-all-duplicates a:hover {
+  text-decoration: underline;
+  color:  hsl(14,  100%, 23%);
+}
+
+/*
+=== MAIN FOOTER ===
+*/
+.main-footer {
+
+}
+
