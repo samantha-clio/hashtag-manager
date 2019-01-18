@@ -9,8 +9,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-extensions@4.0.1/bulma-divider/dist/css/bulma-divider.min.css"> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script> -->
-  <script src="vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
   <title>Hashtag Manager</title>
 </head>
 <body>
@@ -77,7 +76,11 @@
         <article class="main-article">
           <section class="editor">
             <div class="editor-title">
-              <input type="text" class="input" v-model="hashTitle">
+              <input type="text"
+                class="input"
+                v-model="hashTitle"
+                @focus="$event.target.select()"
+                :autofocus="'autofocus'">
             </div>
             <div class="editor-text">
               <textarea
