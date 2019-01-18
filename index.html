@@ -79,15 +79,17 @@
               <input type="text"
                 class="input"
                 v-model="hashTitle"
-                @focus="$event.target.select()"
-                :autofocus="'autofocus'">
+              >
+              <!-- @focus="$event.target.select()" -->
             </div>
             <div class="editor-text">
               <textarea
                 ref="text"
                 class="textarea"
                 v-on:keyup="submit"
-                v-model="hashText"></textarea>
+                v-model="hashText"
+                :autofocus="'autofocus'"
+                ></textarea>
             </div>
           </section>
           <section class="description">
