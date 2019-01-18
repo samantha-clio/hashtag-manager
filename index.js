@@ -18,7 +18,7 @@ new Vue({
       ]},
     ],
     isClosed: true,
-    hashTitle: 'New note',
+    hashTitle: 'Hashtag Manager',
     count: 0,
     duplicatesCount: 0,
     hashDuplicates: [],
